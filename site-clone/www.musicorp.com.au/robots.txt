@@ -1,0 +1,54 @@
+User-agent: *
+Disallow: /add-to-cart/
+Allow: /
+
+User-agent: rogerbot
+Disallow: /add-to-cart/
+Disallow: */price-between
+Disallow: */price-over
+Disallow: */price-under
+Crawl-delay: 5
+Allow: /
+
+User-agent: dotbot
+Disallow: /add-to-cart/
+Disallow: */price-between
+Disallow: */price-over
+Disallow: */price-under
+Crawl-delay: 5
+Allow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: SemrushBot-SA
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: LTX71
+Disallow: /
+
+User-agent: proximic
+Disallow: /
+
+User-agent: SurdotlyBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SEOkicks
+Disallow: /
+
+Sitemap: https://www.musicorp.com.au/sitemap.xml

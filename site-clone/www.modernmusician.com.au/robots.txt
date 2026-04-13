@@ -1,0 +1,12 @@
+User-agent: *
+Crawl-delay: 1
+Disallow: /_
+Disallow: /cgi-bin/
+Disallow: /do/
+Disallow: /*?*rf=
+#Disallow: /
+Disallow: /_cpanel
+Disallow: /cgi-bin/suppliers/
+Disallow: /_mycart
+Disallow: /_myacct
+Sitemap: http://www.modernmusician.com.au/sitemap_index.xml.gz
