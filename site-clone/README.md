@@ -84,18 +84,17 @@ site-clone/
 - `--wait=1`: 1 second delay between requests
 
 ## Completed Tasks
-- [x] Recursive download of all pages and assets
-- [x] Links converted for offline browsing
-- [x] Directory structure preserved by source domain
-- [x] All major file types downloaded (HTML, CSS, JS, images, fonts)
-- [x] Refactored HTML files with relative paths
-- [x] Moved site to gh-pages branch
-- [x] Created CNAME file for custom domain
+1. Recursive download of all pages and assets - DONE
+2. Links converted for offline browsing - DONE
+3. Directory structure preserved by source domain - DONE
+4. All major file types downloaded (HTML, CSS, JS, images, fonts) - DONE
+5. Refactored HTML files with relative paths - DONE
+6. Moved site to gh-pages branch - DONE
+7. Created CNAME file for custom domain - DONE
+8. Push gh-pages branch to GitHub - DONE
 
 ## Remaining Tasks
 - [ ] Configure DNS at dnsmadeeasy.com.au (see instructions below)
-- [x] Push gh-pages branch to GitHub
-- [ ] Enable GitHub Pages on gh-pages branch
 
 ## DNS Configuration Instructions for dnsmadeeasy.com.au
 
