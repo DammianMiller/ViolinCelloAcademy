@@ -32,19 +32,14 @@ def make_request(method, path, data=None):
     data_str = json.dumps(data) if data else ""
     signature = create_signature(method, path, timestamp, data_str)
     url = f"https://api.dnsmadeeasy.com/v2{path}"
-    headers = {
-        "X-Auth-User": API_KEY,
-        "X-Auth-Signature": signature,
-        "X-Auth-Timestamp": timestamp,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-    }
-    if method == "GET":
-        response = requests.get(url, headers=headers)
-    elif method == "POST":
-        response = requests.post(url, headers=headers, json=data)
-    else:
-        raise ValueError(f"Unsupported method: {method}")
+    headers = {"X-Auth-User": API_KEY, "X-Auth-Signature": signature, "X-Auth-Timestamp": timestamp, "Content-Type": "application/json", "Accept": "application/json"}
+    print(f"API_KEY: {API_KEY[:10]}..."}
+    print(f"API_SECRET length: {len(API_SECRET)}")
+print(f"Signature: {signature[:20]}...")
+print(f"URL: {url}")
+    if method == "GET": response = requests.get(url, headers)
+    elif method == "POST": response = requests.post(url, headers=headers, json=data)
+    else: raise ValueError(f"Unsupported method: {method}")
     print(f"Response status: {response.status_code}")
     print(f"Response body: {response.text[:500]}")
     response.raise_for_status()
