@@ -31,7 +31,7 @@ def make_request(method, path, data=None):
     timestamp = str(int(time.time()))
     data_str = json.dumps(data) if data else ""
     signature = create_signature(method, path, timestamp, data_str)
-    url = f"https://api.dnsmadeeasy.com/v2.0{path}"
+    url = f"https://api.dnsmadeeasy.com/v2{path}"
     headers = {
         "X-Auth-User": API_KEY,
         "X-Auth-Signature": signature,
