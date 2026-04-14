@@ -26,3 +26,18 @@ To use violincelloacademy.com.au:
 2. Add CNAME: www → damianmiller.github.io
 
 3. Wait 24-48 hours for DNS propagation
+
+### Automated DNS Setup via GitHub Actions
+
+The repository includes an automated DNS setup pipeline that configures records via the dnsmadeeasy API.
+
+**Prerequisites:**
+- Add `DNSEMADEASY_API_KEY` and `DNSEMADEASY_API_SECRET` as repository secrets
+
+**Usage:**
+1. Go to the Actions tab in GitHub
+2. Select "Setup DNS for Custom Domain" workflow
+3. Click "Run workflow"
+4. Choose environment (staging/production) and click "Run workflow"
+
+The workflow will automatically configure all required DNS records using `scripts/setup_dns.py`.
