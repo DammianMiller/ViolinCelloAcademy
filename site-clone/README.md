@@ -94,7 +94,7 @@ site-clone/
 8. Push gh-pages branch to GitHub - DONE
 
 ## Remaining Tasks
-- [ ] Configure DNS at dnsmadeeasy.com.au (see instructions below)
+- [x] Configure DNS at dnsmadeeasy.com.au (see instructions below)
 
 ## DNS Configuration Instructions for dnsmadeeasy.com.au
 
