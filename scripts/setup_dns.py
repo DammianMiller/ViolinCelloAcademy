@@ -32,7 +32,7 @@ def make_request(method, path, data=None):
     timestamp = str(int(time.time()))
     data_str = json.dumps(data) if data else ""
     signature = create_signature(method, path, timestamp, data_str)
-    url = f"https://api.dnsmadeeasy.com/v2.0{path}"
+    url = f"https://api.dnsmadeeasy.com/v2{path}"
 
     headers = {
         "X-Auth-User": API_KEY,
@@ -50,7 +50,12 @@ def make_request(method, path, data=None):
         with urllib.request.urlopen(req) as response:
             return json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
-        print(f"HTTP Error {e.code}: {e.read().decode('utf-8')}")
+        body = e.read().decode("utf-8")
+        print(f"HTTP Error {e.code}: {body}")
+        print(f"URL: {url}")
+        print(f"Method: {method}")
+        print(f"Timestamp: {timestamp}")
+        print(f"Signature: {signature[:20]}...")
         raise
 
 
