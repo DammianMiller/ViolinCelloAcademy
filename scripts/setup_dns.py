@@ -25,6 +25,8 @@ def create_signature(method, path, timestamp, data):
     signature = hmac.new(
         API_SECRET.encode("utf-8"), string_to_sign.encode("utf-8"), hashlib.sha256
     ).hexdigest()
+    print(f"DEBUG: Signing: {string_to_sign[:50]}...")
+    print(f"DEBUG: Signature: {signature}")
     return signature
 
 
