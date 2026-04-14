@@ -1,6 +1,0 @@
-User-Agent: *
-Disallow: /embed/
-Disallow: /feedback/
-Disallow: /request/
-Disallow: /lp/
-Disallow: /partners/
