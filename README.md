@@ -12,7 +12,7 @@
 1. **Website Cloned**: Entire website content from violincelloacademy.com.au has been cloned into this repository
 2. **Assets Relativized**: All HTML files have been modified to use relative paths for assets, enabling deployment from any location
 3. **CNAME Configured**: CNAME file created pointing to the GitHub Pages domain
-4. **Deployed to GitHub Pages**: Site is now live at `https://<username>.github.io/ViolinCelloAcademy`
+4. **Deployed to GitHub Pages**: Site is now live at `https://damianmiller.github.io/ViolinCelloAcademy`
 
 ## Remaining Manual Steps - DNS Configuration at dnsmadeeasy
 
@@ -27,6 +27,6 @@ To point violincelloacademy.com.au to the GitHub Pages site:
      - Host: @, Value: 185.199.110.153
      - Host: @, Value: 185.199.111.153
    - **CNAME Record:**
-     - Host: www, Value: <username>.github.io
+     - Host: www, Value: damianmiller.github.io
 
 4. Wait for DNS propagation (typically 24-48 hours)
