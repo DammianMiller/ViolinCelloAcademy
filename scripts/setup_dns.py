@@ -16,24 +16,40 @@ RECORDS = [
     {"name": "@", "type": "A", "data": "185.199.109.153", "ttl": 3600},
     {"name": "@", "type": "A", "data": "185.199.110.153", "ttl": 3600},
     {"name": "@", "type": "A", "data": "185.199.111.153", "ttl": 3600},
-    {"name": "www", "type": "CNAME", "data": "damianmiller.github.io", "ttl": 3600}
+    {"name": "www", "type": "CNAME", "data": "damianmiller.github.io", "ttl": 3600},
 ]
+
 
 def create_signature(method, path, timestamp, data):
     string_to_sign = f"{method}\n{path}\n{timestamp}\n{data}"
-    return hmac.new(API_SECRET.encode(), string_to_sign.encode(), hashlib.sha256).hexdigest()
+    return hmac.new(
+        API_SECRET.encode(), string_to_sign.encode(), hashlib.sha256
+    ).hexdigest()
+
 
 def make_request(method, path, data=None):
     timestamp = str(int(time.time()))
     data_str = json.dumps(data) if data else ""
     signature = create_signature(method, path, timestamp, data_str)
     url = f"https://api.dnsmadeeasy.com/v2.0{path}"
-    headers = {"X-Auth-User": API_KEY, "X-Auth-Signature": signature, "X-Auth-Timestamp": timestamp, "Content-Type": "application/json", "Accept": "application/json"}
-    if method == "GET": response = requests.get(url, headers=headers)
-    elif method == "POST": response = requests.post(url, headers=headers, json=data)
-    else: raise ValueError(f"Unsupported method: {method}")
+    headers = {
+        "X-Auth-User": API_KEY,
+        "X-Auth-Signature": signature,
+        "X-Auth-Timestamp": timestamp,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+    }
+    if method == "GET":
+        response = requests.get(url, headers=headers)
+    elif method == "POST":
+        response = requests.post(url, headers=headers, json=data)
+    else:
+        raise ValueError(f"Unsupported method: {method}")
+    print(f"Response status: {response.status_code}")
+    print(f"Response body: {response.text[:500]}")
     response.raise_for_status()
     return response.json()
+
 
 def main():
     if not API_KEY or not API_SECRET:
@@ -55,7 +71,12 @@ def main():
         print(f"Updating {record['type']} for {record['name']}...")
         try:
             existing = make_request("GET", f"/domains/{domain_id}/records")
-            found = any(r["name"] == record["name"] and r["type"] == record["type"] and r["data"] == record["data"] for r in existing)
+            found = any(
+                r["name"] == record["name"]
+                and r["type"] == record["type"]
+                and r["data"] == record["data"]
+                for r in existing
+            )
             if not found:
                 make_request("POST", f"/domains/{domain_id}/records", record)
                 print(f"  Created: {record['name']} -> {record['data']}")
@@ -66,4 +87,6 @@ def main():
     print("\nDNS records updated successfully!")
     return 0
 
-if __name__ == "__main__": exit(main())
+
+if __name__ == "__main__":
+    exit(main())
