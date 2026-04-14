@@ -8,10 +8,11 @@ Website cloned from https://violincelloacademy.com.au and deployed to GitHub Pag
 
 ## What Was Done
 
-1. **Cloned website** - All HTML, CSS, JS, images, and fonts downloaded
-2. **Converted to relative paths** - All assets load locally from the repo
-3. **Created CNAME file** - For custom domain configuration
-4. **Deployed to gh-pages branch** - Site live on GitHub Pages
+1. ✅ **Cloned website** - All HTML, CSS, JS, images, and fonts downloaded
+2. ✅ **Converted to relative paths** - All assets load locally from the repo
+3. ✅ **Created CNAME file** - For custom domain configuration
+4. ✅ **Deployed to gh-pages branch** - Site live on GitHub Pages
+5. ✅ **DNS setup pipeline created** - Automated DNS configuration via GitHub Actions using dnsmadeeasy API
 
 ## DNS Setup (dnsmadeeasy)
 
