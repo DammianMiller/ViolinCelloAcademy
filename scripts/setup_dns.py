@@ -58,6 +58,7 @@ def make_request(method, path, data=None):
         print(f"URL: {url}")
         print(f"Method: {method}")
         print(f"Timestamp: {timestamp}")
+        print(f"API_KEY length: {len(API_KEY)}")
         print(f"Signature: {signature[:20]}...")
         raise
 
