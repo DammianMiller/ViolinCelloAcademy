@@ -41,6 +41,7 @@ def make_request(method, path, data=None):
         "X-Auth-Signature": signature,
         "X-Auth-Timestamp": timestamp,
         "Content-Type": "application/json",
+        "Accept": "application/json",
     }
 
     req = urllib.request.Request(url, headers=headers)
