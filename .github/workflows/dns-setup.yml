@@ -1,0 +1,27 @@
+name: Setup DNS for Custom Domain
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment (staging/production)
+        required: true
+        default: production
+
+jobs:
+  setup-dns:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Setup DNS records via dnsmadeeasy API
+        env:
+          DME_API_KEY: ${{ secrets.DNSEMADEASY_API_KEY }}
+          DME_API_SECRET: ${{ secrets.DNSEMADEASY_API_SECRET }}
+        run: python scripts/setup_dns.py
