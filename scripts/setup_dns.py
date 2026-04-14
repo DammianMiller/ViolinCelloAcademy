@@ -59,14 +59,22 @@ def main():
         print("Error: DME_API_KEY and DME_API_SECRET environment variables required")
         return 1
 
-    print(f"Fetching domain information for {DOMAIN}...")
-
+    print(f"Fetching all domains...")
     try:
-        domains = make_request("GET", f"/domains/{DOMAIN}")
-        domain_id = domains["id"]
-        print(f"Domain ID: {domain_id}")
+        all_domains = make_request("GET", "/domains")
+        print(f"Found {len(all_domains)} domains in account")
+        for d in all_domains:
+            print(f"  - {d.get('name', 'unknown')} (ID: {d.get('id', 'unknown')})")
+
+        domain = next((d for d in all_domains if d.get("name") == DOMAIN), None)
+        if not domain:
+            print(f"Error: Domain {DOMAIN} not found in dnsmadeeasy account")
+            return 1
+
+        domain_id = domain["id"]
+        print(f"\nUsing domain ID: {domain_id}")
     except Exception as e:
-        print(f"Error fetching domain: {e}")
+        print(f"Error fetching domains: {e}")
         return 1
 
     for record in RECORDS:
