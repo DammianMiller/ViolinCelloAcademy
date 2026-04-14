@@ -25,7 +25,4 @@ To use violincelloacademy.com.au:
 
 2. Add CNAME: www → damianmiller.github.io
 
-3. Wait 24-48 hours for DNS propagation**
-     - Host: www, Value: damianmiller.github.io
-
-4. Wait for DNS propagation (typically 24-48 hours)
+3. Wait 24-48 hours for DNS propagation
